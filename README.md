@@ -30,10 +30,28 @@ After which I located the rows containing 'NaN' and dropped them:
 clean_hotel_df = hotel_df.drop(hotel_df[hotel_df['Hotel Name'] == 'NaN'].index).reset_index(drop=True)
 ```
 
-After this delay I was please with my final map of potential destinations.
+After this delay I was pleased with my final map of potential destinations and hotels.
 ![Potential Dstinations](https://github.com/Olibabba/Week6_Jupyter_HW/blob/main/Vacation_search/WeatherPy_vacation_map.png)
 
-### Deliverable Two
+### Deliverable Three
 
+I was initially nervous about this portion, using a new API, Google Directions, to plot a trip between four cities, but thanks to some good documentation online I found it very approachable. 
+
+I deceded then to begin implementing a user input option here as well, and asked the user to choose their cities to travel to. After the user imputs their destinations, each city was pulled out into it's own dataframe, and the coordinates pulled out from that.:
+```
+vacation_start = vacation_df.loc[vacation_df.City == dest1]
+start = ((vacation_start.to_numpy()[0][5]), (vacation_start.to_numpy()[0][6]))
+```
+Planning this trip went smoothly:
+![Cote D'Ivoir Road Trip](https://github.com/Olibabba/Week6_Jupyter_HW/blob/main/Vacation_Itinerary/WeatherPy_travel_map.png)
+
+So I tried to stylize the trip a little:
+![Cote D'Ivoir Road Trip with multi colored legs](https://github.com/Olibabba/Week6_Jupyter_HW/blob/main/Vacation_Itinerary/WeatherPy_travel_map2.png) 
+
+![Cote D'Ivoir Road Trip City/hotel info](https://github.com/Olibabba/Week6_Jupyter_HW/blob/main/Vacation_Itinerary/WeatherPy_travel_map_markers.png)
 
 ## Summary
+
+I think this app has a lot of potential to be cool and useful. Given the chance, I would like to build out and strengthen the user input for city and road trip selection. Right now the app is very dependent on the user entering everything correctly, but error handeling was not in the scope of this build.
+
+I also think there is some room to make some design choices which will help this app stand out and be even more enjoyable to use.
